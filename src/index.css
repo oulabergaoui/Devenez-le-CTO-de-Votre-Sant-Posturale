@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core palette - Energetic Health Theme */
+    --background: 180 20% 98%;
+    --foreground: 210 40% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 40% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 40% 12%;
+
+    /* Primary: Vibrant Teal */
+    --primary: 174 72% 40%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 174 72% 55%;
+
+    /* Secondary: Warm Coral */
+    --secondary: 16 85% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted: Soft gray-teal */
+    --muted: 180 15% 92%;
+    --muted-foreground: 210 15% 45%;
+
+    /* Accent: Soft mint */
+    --accent: 165 50% 88%;
+    --accent-foreground: 174 72% 30%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 180 20% 88%;
+    --input: 180 20% 88%;
+    --ring: 174 72% 40%;
+
+    --radius: 1rem;
+
+    /* Custom tokens */
+    --gradient-hero: linear-gradient(135deg, hsl(174 72% 40%), hsl(174 72% 55%), hsl(165 60% 50%));
+    --gradient-warm: linear-gradient(135deg, hsl(16 85% 60%), hsl(30 90% 65%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(180 20% 98%));
+    --gradient-subtle: linear-gradient(180deg, hsl(180 20% 98%), hsl(180 15% 95%));
+    
+    --shadow-soft: 0 4px 20px -4px hsl(174 72% 40% / 0.15);
+    --shadow-card: 0 8px 30px -8px hsl(210 40% 12% / 0.1);
+    --shadow-glow: 0 0 40px hsl(174 72% 55% / 0.3);
+    --shadow-warm: 0 4px 20px -4px hsl(16 85% 60% / 0.25);
+
+    /* Level colors */
+    --level-beginner: 142 70% 45%;
+    --level-intermediate: 45 90% 50%;
+    --level-advanced: 16 85% 55%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 210 40% 8%;
+    --foreground: 180 20% 95%;
+
+    --card: 210 35% 12%;
+    --card-foreground: 180 20% 95%;
+
+    --popover: 210 35% 12%;
+    --popover-foreground: 180 20% 95%;
+
+    --primary: 174 72% 50%;
+    --primary-foreground: 210 40% 8%;
+    --primary-glow: 174 72% 60%;
+
+    --secondary: 16 85% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 30% 18%;
+    --muted-foreground: 180 15% 60%;
+
+    --accent: 174 40% 20%;
+    --accent-foreground: 174 72% 70%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 30% 20%;
+    --input: 210 30% 20%;
+    --ring: 174 72% 50%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-outfit antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-outfit font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background: var(--gradient-hero);
+  }
+
+  .level-beginner {
+    @apply bg-[hsl(var(--level-beginner))] text-white;
+  }
+
+  .level-intermediate {
+    @apply bg-[hsl(var(--level-intermediate))] text-foreground;
+  }
+
+  .level-advanced {
+    @apply bg-[hsl(var(--level-advanced))] text-white;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+}
