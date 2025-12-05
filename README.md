@@ -14,7 +14,7 @@ L’application fournit des instructions personnalisées basées sur un profil s
 
 ## Prérequis
 - Node.js >= 18.x  
-- npm ou yarn  
+- npm ou yarn
 
 ## Installation et lancement
 1. Cloner le repository  
@@ -28,3 +28,5 @@ L’application fournit des instructions personnalisées basées sur un profil s
 
   4.Ouvrir le navigateur à l’adresse indiquée par Vite
    http://localhost:8080/
+
+Live link demo : https://cto-rho.vercel.app/
